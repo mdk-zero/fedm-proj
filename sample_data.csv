@@ -1,0 +1,34 @@
+name,age,city,department,salary,join_date
+John Smith,28,New York,Engineering,75000,2022-03-15
+Jane Doe,35,Los Angeles,Marketing,85000,2020-06-20
+Bob Johnson,42,Chicago,Engineering,95000,2019-01-10
+Alice Williams,31,New York,Marketing,72000,2021-09-05
+Charlie Brown,29,Chicago,HR,65000,2023-02-28
+Diana Ross,38,Los Angeles,Engineering,88000,2018-11-12
+Edward Miller,45,New York,Management,120000,2017-04-01
+Fiona Davis,33,Chicago,Marketing,78000,2020-08-15
+George Wilson,27,Los Angeles,HR,58000,2023-07-22
+Hannah Moore,36,New York,Engineering,92000,2019-12-03
+Ivan Petrov,41,Chicago,Management,115000,2016-05-18
+Julia Roberts,30,Los Angeles,Marketing,71000,2021-11-30
+Kevin Hart,34,New York,Engineering,89000,2020-02-14
+Linda Chen,29,Chicago,HR,62000,2022-08-08
+Michael Scott,44,Los Angeles,Management,125000,2015-10-20
+Nancy Drew,32,New York,Marketing,76000,2021-04-25
+Oliver Twist,37,Chicago,Engineering,91000,2019-07-12
+Patricia Lane,28,Los Angeles,HR,64000,2022-12-01
+Quincy Adams,40,New York,Management,118000,2017-09-08
+Rachel Green,35,Chicago,Marketing,82000,2020-01-17
+Robert Brown,31,Los Angeles,Engineering,84000,2021-06-22
+Sarah Connor,38,New York,Engineering,96000,2018-03-30
+Tom Anderson,26,Chicago,HR,59000,2023-09-14
+Uma Thurman,33,Los Angeles,Marketing,79000,2020-05-11
+Victor Hugo,29,New York,Engineering,73000,2022-01-28
+Wendy Xia,41,Chicago,Management,122000,2016-08-05
+Xavier Cugat,34,Los Angeles,Marketing,83000,2019-11-19
+Yolanda Adams,30,New York,HR,67000,2021-10-07
+Zack Morris,37,Chicago,Engineering,94000,2018-07-25
+,32,New York,Marketing,80000,2020-03-20
+John Smith,,Los Angeles,Engineering,85000,2019-05-15
+Jane Doe,35,Chicago,,72000,2021-08-10
+Bob Johnson,42,New York,Management,,2017-12-01

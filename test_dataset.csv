@@ -1,0 +1,56 @@
+id,name,age,email,phone,city,department,salary,join_date,status,rating
+EMP1003,Mia Sutton,32,lynchgeorge@example.net,527.264.8350,Philadelphia,HR,60379,2024-05-28,Inactive,2.3
+EMP1016,Deborah Preston,62,josephjacobs@example.net,634-487-4016x40052,Houston,Marketing,89009,2023-10-08,Inactive,4.1
+EMP1015,Michele Carr,51,contrerasangela@example.net,,Phoenix,Finance,139871,2017-05-23,Inactive,1.4
+EMP1047,Deborah Hanson,63,vsantos@example.net,+1-665-578-0913,Dallas,HR,43617,2023-10-28,Active,2.0
+EMP1049,Elaine Brooks,58,johnjenkins@example.net,(422)519-6937,New York,Operations,97154,2020-12-19,Active,4.2
+EMP1048,Brett Schultz,38,wallaceheather@example.org,,San Jose,Sales,85309,2016-10-25,Pending,4.9
+EMP1047,Deborah Hanson,63,vsantos@example.net,+1-665-578-0913,Dallas,HR,43617,2023-10-28,Active,2.0
+EMP1005,Johnny Campos,46,hernandezernest@example.net,(791)366-9784x80184,Phoenix,Operations,121070,2019-04-17,Pending,3.8
+EMP1046,Joseph Bryant,36,robertpena@example.org,,Houston,Sales,83025,2017-02-07,Pending,4.9
+EMP1001,Jennifer Cole,,lisa02@example.net,(254)923-5116x15594,New York,Engineering,68657,2021-09-19,Inactive,1.1
+EMP1002,Jamie Arnold,63,barbara10@example.net,441.731.6475,San Antonio,Marketing,98878,2019-11-28,Active,4.5
+EMP1043,Anna Gay,48,murraydavid@example.org,448.346.7737x8263,Chicago,Marketing,61299,2019-02-13,Inactive,1.1
+EMP1030,Kevin Rivas,35,curtisbarton@example.net,+1-819-905-8651x850,San Jose,Operations,111066,2017-05-30,Active,1.2
+EMP1045,Veronica Allen,24,xhall@example.com,7573662702,Houston,Marketing,147031,2025-02-05,Active,4.3
+EMP1036,John Ray,37,hernandezlisa@example.com,831-986-9993,Chicago,Sales,149280,2025-06-10,Active,3.4
+EMP1033,Justin Allen,48,fbrewer@example.com,9147363495,San Jose,Finance,81467,2020-08-11,Pending,3.9
+EMP1029,Christian Martinez,,elliottjeffery@example.net,852-899-1241x904,San Diego,HR,95444,2025-10-09,Active,2.9
+EMP1022,Richard Lawson,59,steven73@example.net,221.248.9513x4332,Los Angeles,Operations,122719,2018-10-21,Active,4.6
+EMP1014,Cynthia Foster,,stephen10@example.com,+1-791-618-3842x513,Dallas,HR,140741,2017-12-07,Pending,
+EMP1010,Nicholas Nunez,58,brownjessica@example.org,933.587.2624,Philadelphia,Marketing,125909,2025-02-06,Active,4.7
+EMP1040,Shannon Matthews,30,keyemily@example.com,001-802-978-7429,Phoenix,Marketing,137154,2026-01-17,Active,2.7
+EMP1031,Madison Poole,54,ryangross@example.net,998-577-6945x314,Dallas,Marketing,47455,2023-11-11,Active,
+EMP1038,Douglas Heath,28,mcdanielsandra@example.net,001-336-218-3242,Chicago,HR,76930,2018-01-06,Active,2.4
+EMP1013,Brooke Yu,26,yorkcasey@example.org,+1-736-619-3990x91699,San Jose,Sales,109352,2018-05-26,Pending,4.4
+EMP1006,Aaron Bowen,,teresa28@example.org,+1-948-293-2528x8095,Phoenix,Engineering,70512,2017-06-22,Active,2.8
+EMP1028,Daniel Murphy,37,aramirez@example.com,270-580-5310,San Diego,Sales,68016,2018-05-08,Active,1.7
+EMP1009,Austin Johnson,25,chad34@example.net,838.729.9737x6311,New York,HR,92581,2020-08-04,Pending,
+EMP1000,Allison Hill,23,donaldgarcia@example.net,+1-219-560-0133,Houston,Marketing,58289,2023-07-08,Active,4.6
+EMP1034,Erin Warner,47,kristopher31@example.net,651.382.3374,Phoenix,Sales,81441,2024-09-06,Active,
+EMP1017,Jessica Smith,22,landryhannah@example.org,+1-605-798-2620,San Diego,Engineering,54662,2025-05-06,Pending,4.3
+EMP1037,Kevin Patterson,63,lynchjody@example.org,+1-934-612-3281x2067,Dallas,HR,126951,2016-09-06,Active,1.5
+EMP1046,Joseph Bryant,36,robertpena@example.org,,Houston,Sales,83025,2017-02-07,Pending,4.9
+EMP1011,Robert Chase,38,williamsyvette@example.org,432-867-7360,Dallas,Finance,74438,2016-05-17,Active,3.3
+EMP1024,Barbara Anderson,58,jcontreras@example.net,979-586-8727x74348,San Diego,Sales,64957,2019-02-07,Active,
+EMP1041,Jason Morris,,hodgemark@example.net,246.980.7154x5168,Chicago,Finance,44722,2020-06-27,Pending,1.6
+EMP1042,Isaiah Avila,41,nwolf@example.com,+1-424-677-1093,New York,HR,67535,2021-11-12,Inactive,2.4
+EMP1008,Nicole Vaughn,32,raymond57@example.net,213.331.5098x393,Phoenix,Operations,130198,2023-06-08,Active,2.3
+EMP1035,Isaac Turner,58,joshuamccann@example.net,627-910-9477x7520,Los Angeles,Finance,67938,2017-06-30,Active,4.7
+EMP1018,Shannon Nolan,25,evelynestrada@example.com,001-686-492-3226x02563,San Jose,Engineering,51226,2024-03-25,Active,4.9
+EMP1025,Dustin Nelson,49,patricia12@example.org,962.831.6658,New York,Operations,125649,2016-12-23,Active,
+EMP1047,Deborah Hanson,63,vsantos@example.net,+1-665-578-0913,Dallas,HR,43617,2023-10-28,Active,2.0
+EMP1026,Jean Carrillo,28,gateskathy@example.com,805.946.6889x3734,Houston,Finance,98800,2016-08-24,Inactive,2.1
+EMP1044,Jennifer Villa,43,lori44@example.net,001-872-978-7558,San Antonio,Operations,136345,2025-09-07,Inactive,4.1
+EMP1032,Mary Rogers,60,lrosales@example.com,554.354.9480,Houston,Sales,55713,2018-10-08,Active,3.4
+EMP1019,Shane Garrison,30,jamessellers@example.com,733-203-6541x4586,San Diego,Finance,61643,2017-07-05,Pending,3.4
+EMP1007,William Roman,32,brianhumphrey@example.org,671-882-2782,Houston,Operations,74993,2025-12-31,Active,1.7
+EMP1043,Anna Gay,48,murraydavid@example.org,448.346.7737x8263,Chicago,Marketing,61299,2019-02-13,Inactive,1.1
+EMP1020,Cassandra Estes,56,benjamin96@example.com,001-556-798-1693x4060,Houston,Operations,80857,2020-09-01,Active,3.6
+EMP1039,Paul Carroll,38,scott74@example.net,(248)387-7190x6594,Phoenix,Engineering,52097,2018-08-24,Active,1.2
+EMP1021,Tammie Hanson,55,cortezkevin@example.com,+1-865-264-8236x62994,Houston,Marketing,48392,2019-05-25,Pending,
+EMP1042,Isaiah Avila,41,nwolf@example.com,+1-424-677-1093,New York,HR,67535,2021-11-12,Inactive,2.4
+EMP1004,Austin Gentry,,jason76@example.net,724.523.8849x696,Philadelphia,Finance,74671,2026-05-01,Active,3.1
+EMP1027,Michael Powell,26,marycalhoun@example.net,+1-906-499-0162,Dallas,Engineering,46630,2016-11-09,Active,4.9
+EMP1023,Samuel Jones,26,kmercado@example.org,001-967-263-2016x328,Phoenix,Operations,103624,2021-12-06,Inactive,3.9
+EMP1012,Timothy Glover,30,rodney87@example.org,243.909.8050,Los Angeles,Engineering,54371,2021-05-20,Inactive,4.2
