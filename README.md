@@ -49,22 +49,44 @@ Upload → Profile → Clean → Compare → Insights → Visualize
 
 ## Installation
 
-### Backend
+### Prerequisites
+- Python 3.8+
+- Node.js 18+
+
+### Backend Setup
 ```bash
+# Navigate to backend directory
 cd backend
+
+# Create virtual environment
 python -m venv venv
+
+# Activate virtual environment
 source venv/bin/activate  # Linux/Mac
 # venv\Scripts\activate   # Windows
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Start the backend server
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
-### Frontend
+The backend API will be available at http://localhost:8000
+
+### Frontend Setup
 ```bash
+# Navigate to frontend directory
 cd frontend
+
+# Install dependencies
 npm install
+
+# Start the development server
 npm run dev
 ```
+
+The frontend will be available at http://localhost:5173
 
 ## Usage
 
