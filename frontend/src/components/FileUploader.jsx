@@ -53,9 +53,9 @@ export default function FileUploader({ onUpload, loading }) {
         {/* Background decoration */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-accent-cyan/5" />
         
-        <div className="relative z-10 flex flex-col items-center justify-center py-8">
+        <div className="relative z-10 flex flex-col items-center justify-center py-6">
           <div className={`
-            w-20 h-20 rounded-2xl flex items-center justify-center mb-4
+            w-16 h-16 rounded-xl flex items-center justify-center mb-3
             transition-all duration-300
             ${dragActive 
               ? 'bg-primary-500 scale-110 shadow-glow' 
@@ -64,14 +64,14 @@ export default function FileUploader({ onUpload, loading }) {
             {loading ? (
               <LoadingSpinner size="lg" />
             ) : (
-              <FileUp className={`w-10 h-10 ${dragActive ? 'text-white' : 'text-slate-400'}`} />
+              <FileUp className={`w-8 h-8 ${dragActive ? 'text-white' : 'text-slate-400'}`} />
             )}
           </div>
           
-          <p className="text-xl font-semibold text-slate-200 mb-2">
+          <p className="text-lg font-semibold text-slate-200 mb-1">
             {dragActive ? 'Drop your file here' : 'Drag and drop your file here'}
           </p>
-          <p className="text-slate-500 mb-6">
+          <p className="text-slate-500 mb-4">
             or click to browse from your computer
           </p>
           
@@ -95,7 +95,7 @@ export default function FileUploader({ onUpload, loading }) {
       </div>
 
       {file && (
-        <div className="mt-6 card-dark p-4 flex items-center justify-between">
+        <div className="mt-4 card-dark p-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
               <FileSpreadsheet className="w-5 h-5 text-emerald-400" />
@@ -127,9 +127,9 @@ export default function FileUploader({ onUpload, loading }) {
       )}
 
       {/* Sample files hint */}
-      <div className="mt-8 text-center">
-        <p className="text-sm text-slate-500 mb-2">Try these sample datasets:</p>
-        <div className="flex justify-center gap-3">
+      <div className="mt-4 text-center">
+        <p className="text-xs text-slate-500 mb-2">Try these sample datasets:</p>
+        <div className="flex justify-center gap-2">
           <span className="badge badge-primary">test_dataset.csv</span>
           <span className="badge badge-primary">sample_data.csv</span>
         </div>

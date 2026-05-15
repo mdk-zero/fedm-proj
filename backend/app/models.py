@@ -30,6 +30,7 @@ class ProfilingResponse(BaseModel):
 class DataResponse(BaseModel):
     data: List[Dict[str, Any]]
     columns: List[str]
+    total_rows: int
     profiling: ProfilingResponse
 
 

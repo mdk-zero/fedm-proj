@@ -55,6 +55,7 @@ def get_data(session_id: str, page: int = 1, limit: int = 50) -> DataResponse:
     return {
         "data": data,
         "columns": list(df.columns),
+        "total_rows": len(df),
         "profiling": profiling
     }
 

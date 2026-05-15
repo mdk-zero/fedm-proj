@@ -236,7 +236,7 @@
 
   /* File Uploader */
   .dropzone {
-    @apply relative border-2 border-dashed rounded-xl p-12 text-center
+    @apply relative border-2 border-dashed rounded-xl p-8 text-center
            transition-all duration-300 cursor-pointer
            border-slate-600 hover:border-primary-500/50
            bg-slate-800/30 hover:bg-slate-800/50;

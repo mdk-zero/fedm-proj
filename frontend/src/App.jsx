@@ -10,7 +10,7 @@ import MultiChartDashboard from './components/MultiChartDashboard'
 import FilterPanel from './components/FilterPanel'
 import KPICard from './components/KPICard'
 import { uploadFile, getData } from './services/api'
-import { Database, BarChart3, Sparkles, GitCompare, TrendingUp } from 'lucide-react'
+import { Database, BarChart3, Sparkles, GitCompare, TrendingUp, BarChart, Filter, Sparkle, ChevronDown, ChevronUp } from 'lucide-react'
 
 const stepIcons = [Database, BarChart3, Sparkles, GitCompare, TrendingUp]
 const stepDescriptions = [
@@ -49,7 +49,7 @@ function App() {
   }
 
   const loadData = async (id) => {
-    const result = await getData(id)
+    const result = await getData(id, 1, 100000)
     setData(result)
     setProfiling(result.profiling)
   }
@@ -80,47 +80,47 @@ function App() {
 
   return (
     <FilterProvider>
-      <div className="min-h-screen p-6">
-        <div className="max-w-7xl mx-auto">
+      <div className="h-screen flex flex-col p-6">
+        <div className="max-w-7xl mx-auto flex-1 flex flex-col">
           {/* Header */}
-          <header className="mb-8 text-center">
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-accent-cyan to-primary-600 mb-2">
+          <header className="mb-4 text-center">
+            <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-accent-cyan to-primary-600 mb-1">
               Data Cleaning & Analytics
             </h1>
-            <p className="text-slate-400 text-lg">Upload, clean, and analyze your datasets with AI-powered insights</p>
+            <p className="text-slate-400 text-sm">Upload, clean, and analyze your datasets with AI-powered insights</p>
           </header>
 
           {/* Enhanced Stepper */}
-          <div className="mb-10">
+          <div className="mb-4">
             <div className="flex items-center justify-center">
               {steps.map((step, idx) => {
                 const Icon = stepIcons[idx]
                 const isActive = idx === currentStep
                 const isCompleted = idx < currentStep
                 const isPending = idx > currentStep
-                
+
                 return (
                   <div key={step} className="flex items-center">
                     <div className="flex flex-col items-center group">
                       <div className={`
-                        w-12 h-12 rounded-xl flex items-center justify-center
-                        transition-all duration-300 border-2
-                        ${isActive 
-                          ? 'bg-gradient-to-br from-primary-500 to-primary-600 border-primary-400 shadow-glow scale-110' 
-                          : isCompleted 
+                        w-8 h-8 rounded-lg flex items-center justify-center
+                        transition-all duration-300 border
+                        ${isActive
+                          ? 'bg-gradient-to-br from-primary-500 to-primary-600 border-primary-400'
+                          : isCompleted
                             ? 'bg-primary-900/50 border-primary-500/50 text-primary-400'
                             : 'bg-slate-800 border-slate-700 text-slate-500'}
                       `}>
-                        <Icon className={`w-5 h-5 ${isActive ? 'text-white' : ''}`} />
+                        <Icon className={`w-4 h-4 ${isActive ? 'text-white' : ''}`} />
                       </div>
                       <span className={`
-                        mt-2 text-xs font-medium transition-colors
+                        mt-1 text-[10px] font-medium transition-colors
                         ${isActive ? 'text-primary-400' : isCompleted ? 'text-primary-400/70' : 'text-slate-500'}
                       `}>{step}</span>
                     </div>
                     {idx < steps.length - 1 && (
                       <div className={`
-                        w-16 h-0.5 mx-2 rounded-full transition-all duration-500
+                        w-8 h-0.5 mx-1 rounded-full transition-all duration-500
                         ${isCompleted ? 'bg-primary-500' : 'bg-slate-700'}
                       `} />
                     )}
@@ -143,80 +143,182 @@ function App() {
           )}
 
           {/* Step Content */}
-          {currentStep === 0 && (
-            <FileUploader onUpload={handleUpload} loading={loading} />
-          )}
-
-          {currentStep === 1 && data && (
-            <div className="space-y-6 animate-fade-in">
-              <DataProfiler profiling={profiling} filename={filename} />
-              <DataTable data={data} />
-              <div className="flex justify-between pt-4">
-                <button onClick={reset} className="btn-secondary flex items-center gap-2">
-                  ← Start Over
-                </button>
-                <button onClick={handleNext} className="btn-primary flex items-center gap-2">
-                  Continue to Cleaning →
-                </button>
+          <div className="flex-1 min-h-0 overflow-y-auto custom-scrollbar">
+            {currentStep === 0 && (
+              <div className="flex-1 flex items-center justify-center min-h-0">
+                <FileUploader onUpload={handleUpload} loading={loading} />
               </div>
-            </div>
-          )}
+            )}
 
-          {currentStep === 2 && data && (
-            <div className="space-y-6 animate-fade-in">
-              <DataCleaner sessionId={sessionId} columns={data.columns} onClean={handleClean} />
-              <div className="flex justify-between pt-4">
-                <button onClick={handleBack} className="btn-secondary flex items-center gap-2">
-                  ← Back to Profile
-                </button>
-                <button onClick={handleNext} className="btn-primary flex items-center gap-2">
-                  Continue to Compare →
-                </button>
+            {currentStep === 1 && data && (
+              <div className="flex flex-col h-full min-h-0 animate-fade-in gap-2">
+                <div className="flex flex-1 min-h-0 gap-3">
+                  <div className="w-96 shrink-0">
+                    <DataProfiler profiling={profiling} filename={filename} />
+                  </div>
+                  <div className="flex-1 min-h-0 overflow-hidden">
+                    <DataTable sessionId={sessionId} maxHeight="h-full" />
+                  </div>
+                </div>
+                <div className="flex justify-between shrink-0 pt-2 border-t border-slate-700/50">
+                  <button onClick={reset} className="btn-secondary flex items-center gap-2">
+                    ← Start Over
+                  </button>
+                  <button onClick={handleNext} className="btn-primary flex items-center gap-2">
+                    Continue to Cleaning →
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {currentStep === 3 && sessionId && (
-            <div className="space-y-6 animate-fade-in">
-              <DataComparison sessionId={sessionId} />
-              <div className="flex justify-between pt-4">
-                <button onClick={handleBack} className="btn-secondary flex items-center gap-2">
-                  ← Back to Cleaning
-                </button>
-                <button onClick={handleNext} className="btn-primary flex items-center gap-2">
-                  Continue to Insights →
-                </button>
+            {currentStep === 2 && data && (
+              <div className="space-y-6 animate-fade-in">
+                <DataCleaner sessionId={sessionId} columns={data.columns} onClean={handleClean} />
+                <div className="flex justify-between pt-4">
+                  <button onClick={handleBack} className="btn-secondary flex items-center gap-2">
+                    ← Back to Profile
+                  </button>
+                  <button onClick={handleNext} className="btn-primary flex items-center gap-2">
+                    Continue to Compare →
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {currentStep === 4 && sessionId && (
-            <div className="space-y-6 animate-fade-in">
-              <KPICard sessionId={sessionId} refreshKey={refreshKey} />
-              <FilterPanel sessionId={sessionId} />
-              <InsightsPanel sessionId={sessionId} refreshKey={refreshKey} />
-              
-              <div className="card-dark p-6">
-                <h2 className="text-xl font-bold text-slate-100 mb-4 flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-primary-400" />
-                  Interactive Dashboard
-                </h2>
-                <MultiChartDashboard sessionId={sessionId} />
+            {currentStep === 3 && sessionId && (
+              <div className="space-y-6 animate-fade-in">
+                <DataComparison sessionId={sessionId} />
+                <div className="flex justify-between pt-4">
+                  <button onClick={handleBack} className="btn-secondary flex items-center gap-2">
+                    ← Back to Cleaning
+                  </button>
+                  <button onClick={handleNext} className="btn-primary flex items-center gap-2">
+                    Continue to Insights →
+                  </button>
+                </div>
               </div>
+            )}
 
-              <div className="flex justify-between pt-4">
-                <button onClick={handleBack} className="btn-secondary flex items-center gap-2">
-                  ← Back to Compare
-                </button>
-                <button onClick={reset} className="btn-primary flex items-center gap-2">
-                  Start New Analysis
-                </button>
-              </div>
-            </div>
-          )}
+            {currentStep === 4 && sessionId && (
+              <InsightsPage
+                sessionId={sessionId}
+                refreshKey={refreshKey}
+                onBack={handleBack}
+                onReset={reset}
+              />
+            )}
+          </div>
         </div>
       </div>
     </FilterProvider>
+  )
+}
+
+function InsightsPage({ sessionId, refreshKey, onBack, onReset }) {
+  const [activeTab, setActiveTab] = useState('charts')
+  const [expandedSections, setExpandedSections] = useState({
+    kpi: true,
+    filters: true,
+    insights: true
+  })
+
+  const tabs = [
+    { id: 'charts', label: 'Charts', icon: BarChart },
+    { id: 'insights', label: 'Data Insights', icon: Sparkle },
+    { id: 'kpi', label: 'KPIs & Filters', icon: Filter }
+  ]
+
+  const toggleSection = (section) => {
+    setExpandedSections(prev => ({ ...prev, [section]: !prev[section] }))
+  }
+
+  return (
+    <div className="flex flex-col h-full min-h-0 animate-fade-in">
+      {/* Tabs */}
+      <div className="flex gap-2 mb-4 p-1 bg-slate-800/50 rounded-lg w-fit">
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${activeTab === tab.id
+              ? 'bg-primary-500 text-white shadow-lg'
+              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-700/50'
+              }`}
+          >
+            <tab.icon className="w-4 h-4" />
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Tab Content */}
+      <div className="flex-1 min-h-0 overflow-hidden">
+        {activeTab === 'charts' && (
+          <div className="h-full overflow-y-auto custom-scrollbar">
+            <MultiChartDashboard sessionId={sessionId} />
+          </div>
+        )}
+
+        {activeTab === 'insights' && (
+          <div className="h-full overflow-y-auto custom-scrollbar space-y-4">
+            <InsightsPanel sessionId={sessionId} refreshKey={refreshKey} />
+          </div>
+        )}
+
+        {activeTab === 'kpi' && (
+          <div className="h-full overflow-y-auto custom-scrollbar space-y-4">
+            <CollapsibleSection
+              title="Key Performance Indicators"
+              expanded={expandedSections.kpi}
+              onToggle={() => toggleSection('kpi')}
+            >
+              <KPICard sessionId={sessionId} refreshKey={refreshKey} />
+            </CollapsibleSection>
+
+            <CollapsibleSection
+              title="Filters (Slicers)"
+              expanded={expandedSections.filters}
+              onToggle={() => toggleSection('filters')}
+            >
+              <FilterPanel sessionId={sessionId} />
+            </CollapsibleSection>
+          </div>
+        )}
+      </div>
+
+      {/* Navigation */}
+      <div className="flex justify-between pt-4 mt-4 border-t border-slate-700">
+        <button onClick={onBack} className="btn-secondary flex items-center gap-2">
+          ← Back to Compare
+        </button>
+        <button onClick={onReset} className="btn-primary flex items-center gap-2">
+          Start New Analysis
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function CollapsibleSection({ title, expanded, onToggle, children }) {
+  return (
+    <div className="card-dark">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between p-4 hover:bg-slate-800/30 transition-colors"
+      >
+        <span className="font-semibold text-slate-200">{title}</span>
+        {expanded ? (
+          <ChevronUp className="w-5 h-5 text-slate-400" />
+        ) : (
+          <ChevronDown className="w-5 h-5 text-slate-400" />
+        )}
+      </button>
+      {expanded && (
+        <div className="px-4 pb-4">
+          {children}
+        </div>
+      )}
+    </div>
   )
 }
 

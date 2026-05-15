@@ -46,36 +46,34 @@ export default function InsightsPanel({ sessionId, refreshKey }) {
   }
 
   return (
-    <div className="card-dark p-6">
-      <div className="flex items-center gap-2 mb-6">
-        <Sparkles className="w-5 h-5 text-primary-400" />
-        <h2 className="text-xl font-bold text-slate-100">Data Insights</h2>
+    <div className="card-dark p-4">
+      <div className="flex items-center gap-2 mb-3">
+        <Sparkles className="w-4 h-4 text-primary-400" />
+        <h2 className="text-lg font-bold text-slate-100">Data Insights</h2>
       </div>
 
       {Object.keys(insights.summary_stats || {}).length > 0 && (
-        <div className="mb-6">
-          <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-3">Summary Statistics</h3>
-          <div className="overflow-x-auto rounded-lg border border-slate-700">
-            <table className="w-full text-sm">
-              <thead className="bg-slate-800">
+        <div className="mb-3">
+          <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">Summary Statistics</h3>
+          <div className="max-h-32 overflow-auto rounded-lg border border-slate-700 custom-scrollbar">
+            <table className="w-full text-xs">
+              <thead className="bg-slate-800 sticky top-0">
                 <tr>
-                  <th className="px-4 py-3 text-left font-medium text-slate-400">Column</th>
-                  <th className="px-4 py-3 text-right font-medium text-slate-400">Count</th>
-                  <th className="px-4 py-3 text-right font-medium text-slate-400">Mean</th>
-                  <th className="px-4 py-3 text-right font-medium text-slate-400">Std Dev</th>
-                  <th className="px-4 py-3 text-right font-medium text-slate-400">Min</th>
-                  <th className="px-4 py-3 text-right font-medium text-slate-400">Max</th>
+                  <th className="px-2 py-1.5 text-left font-medium text-slate-400">Column</th>
+                  <th className="px-2 py-1.5 text-right font-medium text-slate-400">Count</th>
+                  <th className="px-2 py-1.5 text-right font-medium text-slate-400">Mean</th>
+                  <th className="px-2 py-1.5 text-right font-medium text-slate-400">Min</th>
+                  <th className="px-2 py-1.5 text-right font-medium text-slate-400">Max</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-700">
                 {Object.entries(insights.summary_stats || {}).map(([col, stats]) => (
                   <tr key={col} className="hover:bg-slate-800/30">
-                    <td className="px-4 py-3 font-medium text-slate-300">{col}</td>
-                    <td className="px-4 py-3 text-right text-slate-400">{stats.count}</td>
-                    <td className="px-4 py-3 text-right text-slate-400">{stats.mean || '-'}</td>
-                    <td className="px-4 py-3 text-right text-slate-400">{stats.std || '-'}</td>
-                    <td className="px-4 py-3 text-right text-slate-400">{stats.min || '-'}</td>
-                    <td className="px-4 py-3 text-right text-slate-400">{stats.max || '-'}</td>
+                    <td className="px-2 py-1.5 font-medium text-slate-300">{col}</td>
+                    <td className="px-2 py-1.5 text-right text-slate-400">{stats.count}</td>
+                    <td className="px-2 py-1.5 text-right text-slate-400">{stats.mean?.toFixed(1) || '-'}</td>
+                    <td className="px-2 py-1.5 text-right text-slate-400">{stats.min || '-'}</td>
+                    <td className="px-2 py-1.5 text-right text-slate-400">{stats.max || '-'}</td>
                   </tr>
                 ))}
               </tbody>
@@ -85,13 +83,13 @@ export default function InsightsPanel({ sessionId, refreshKey }) {
       )}
 
       {Object.keys(insights.trends || {}).length > 0 && (
-        <div className="mb-6">
-          <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-3">Trends</h3>
-          <div className="flex flex-wrap gap-3">
+        <div className="mb-3">
+          <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">Trends</h3>
+          <div className="flex flex-wrap gap-2">
             {Object.entries(insights.trends || {}).map(([col, trend]) => (
-              <div key={col} className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-lg border border-slate-700">
+              <div key={col} className="flex items-center gap-1.5 px-2 py-1 bg-slate-800/50 rounded border border-slate-700 text-xs">
                 <span className="font-medium text-slate-300">{col}</span>
-                <span className={`text-sm ${
+                <span className={`text-[10px] ${
                   trend === 'increasing' ? 'text-emerald-400' :
                   trend === 'decreasing' ? 'text-rose-400' : 'text-slate-500'
                 }`}>
@@ -105,16 +103,16 @@ export default function InsightsPanel({ sessionId, refreshKey }) {
       )}
 
       <div>
-        <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-3">Most Frequent Values</h3>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {Object.entries(insights.frequent_values || {}).slice(0, 6).map(([col, values]) => (
-            <div key={col} className="p-4 bg-slate-800/30 rounded-xl border border-slate-700">
-              <h4 className="font-medium text-slate-300 mb-3">{col}</h4>
-              <div className="space-y-2">
-                {values.slice(0, 3).map(([val, count], idx) => (
-                  <div key={idx} className="flex justify-between items-center text-sm">
-                    <span className="text-slate-400 truncate max-w-[140px]">{String(val)}</span>
-                    <span className="text-slate-600 text-xs">({count})</span>
+        <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-2">Frequent Values</h3>
+        <div className="grid grid-cols-2 gap-2">
+          {Object.entries(insights.frequent_values || {}).slice(0, 4).map(([col, values]) => (
+            <div key={col} className="p-2 bg-slate-800/30 rounded border border-slate-700">
+              <h4 className="font-medium text-slate-300 text-xs mb-1">{col}</h4>
+              <div className="space-y-0.5">
+                {values.slice(0, 2).map(([val, count], idx) => (
+                  <div key={idx} className="flex justify-between items-center text-[10px]">
+                    <span className="text-slate-400 truncate">{String(val)}</span>
+                    <span className="text-slate-600">({count})</span>
                   </div>
                 ))}
               </div>

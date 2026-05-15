@@ -82,7 +82,7 @@ export default function DataComparison({ sessionId }) {
         </button>
       </div>
 
-      <div className="overflow-x-auto rounded-lg border border-slate-700">
+      <div className="max-h-80 overflow-auto rounded-lg border border-slate-700 custom-scrollbar">
         <table className="table-dark">
           <thead>
             <tr>
