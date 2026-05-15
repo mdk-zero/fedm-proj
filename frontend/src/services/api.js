@@ -24,8 +24,10 @@ export const cleanData = async (sessionId, operation, options = {}) => {
   return response.data
 }
 
-export const compareData = async (sessionId) => {
-  const response = await axios.get(`${API_BASE}/compare/${sessionId}`)
+export const compareData = async (sessionId, limit = 100000) => {
+  const response = await axios.get(`${API_BASE}/compare/${sessionId}`, {
+    params: { limit }
+  })
   return response.data
 }
 

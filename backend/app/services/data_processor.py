@@ -169,8 +169,8 @@ class DataProcessor:
             })
 
         return {
-            "original_data": original.head(100).to_dict("records"),
-            "cleaned_data": current.head(100).to_dict("records"),
+            "original_data": original.to_dict("records"),
+            "cleaned_data": current.to_dict("records"),
             "changes": changes
         }
 
