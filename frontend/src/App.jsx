@@ -114,7 +114,7 @@ function App() {
                         <Icon className={`w-4 h-4 ${isActive ? 'text-white' : ''}`} />
                       </div>
                       <span className={`
-                        mt-1 text-[10px] font-medium transition-colors
+                        mt-1 text-[16px] font-medium transition-colors
                         ${isActive ? 'text-primary-400' : isCompleted ? 'text-primary-400/70' : 'text-slate-500'}
                       `}>{step}</span>
                     </div>
@@ -128,7 +128,7 @@ function App() {
                 )
               })}
             </div>
-            <p className="text-center text-sm text-slate-500 mt-3">
+            <p className="text-center text-md text-slate-500 mt-3">
               {stepDescriptions[currentStep]}
             </p>
           </div>

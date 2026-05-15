@@ -66,12 +66,12 @@ export default function DataProfiler({ profiling, filename }) {
 
       <div className="flex-1 overflow-y-auto custom-scrollbar mt-3 space-y-2">
         <div>
-          <h3 className="text-[10px] font-semibold text-slate-400 mb-1">Column Types</h3>
+          <h3 className="text-[16px] font-semibold text-slate-400 mb-1">Column Types</h3>
           <div className="flex flex-wrap gap-1">
             {Object.entries(profiling.column_types || {}).map(([col, type]) => (
-              <span key={col} className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-slate-800/50 rounded text-[9px]">
+              <span key={col} className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-slate-800/50 rounded text-[12px]">
                 <span className="font-medium text-slate-300 truncate max-w-[60px]">{col}</span>
-                <span className="text-[8px] text-slate-500 bg-slate-700/50 px-1 rounded font-mono">{type}</span>
+                <span className="text-[12px] text-slate-500 bg-slate-700/50 px-1 rounded font-mono">{type}</span>
               </span>
             ))}
           </div>
@@ -106,7 +106,7 @@ export default function DataProfiler({ profiling, filename }) {
 
         {showStats && hasStats && (
           <div className="overflow-x-auto rounded border border-slate-700/50">
-            <table className="w-full text-[9px]">
+            <table className="w-full text-[12px]">
               <thead className="bg-slate-800/60">
                 <tr>
                   <th className="px-2 py-1 text-left font-medium text-slate-400">Column</th>
